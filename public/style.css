@@ -1,0 +1,267 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    
+}
+
+body{
+    display: flex;
+    
+ 
+}
+
+.sidebar{
+    position:sticky;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    height: 100vh;
+    color: white;
+    overflow: hidden;
+    transition: all 0.5s linear;
+    background-color: #5a58cf;
+}
+
+.logo{
+    height: 25px;
+    width: 17px;
+    border-radius:50%;
+}
+
+.menu{
+    height: 80%;
+    position: relative;
+    list-style: none;
+    padding: 0;
+
+}
+
+.menu li {
+    padding: 1rem;
+    margin-top: 2px;
+    border-radius: 8px;
+    transition: all 0.5s ease-in-out;
+    width: 80%; /* Adjust this value as needed */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.menu a {
+    color: white;
+    font-size: 14px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.menu a span{
+    overflow: hidden;
+}
+
+.color{
+    background-color: rgb(221 214 254);
+}
+.logout{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.main--content{
+    position: relative;
+  
+    background-color: rgb(221 214 254);
+  
+    padding: 1rem;
+    width: 87%;
+    height: 20%;
+}
+
+.myimg{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.header--wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px 2rem;
+    margin-bottom: 1rem;
+}
+
+.header--title{
+    color: rgba(113,99,186,55);
+}
+
+.user--info{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    overflow-x: auto; /* Allow horizontal scrolling */
+}
+
+.card--wrapper {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    gap: 1rem;
+}
+
+.main--title {
+    color: rgb(113, 99, 189, 255);
+    padding-bottom: 10px;
+    font-size: 15px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.card-number {
+    font-size: 16px;
+    font-weight: 600;
+    color: #666;
+}
+
+.card-logo {
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.amount-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #000;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.payment--card {
+    background-color: rgb(229, 223, 223); /* Light background for a clean look */
+    border-radius: 15px;
+    padding: 1.5rem;
+    width: 275px;
+    height: 180px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+
+
+.payment--card:hover {
+    transform: translateY(-8px);
+}
+
+
+.card--header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.amount {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tabular Section */
+
+
+.tabular--wrapper {
+    background-color: white;
+    margin-top: 1rem;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table--container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #5a58cf;
+    color: white;
+}
+
+th {
+    padding: 15px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+tbody {
+    background-color: white;
+}
+
+td {
+    padding: 15px;
+    font-size: 14px;
+    color: black;
+    border: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.trtbody :hover {
+    background-color: rgb(221 214 254);
+}
+
+tfoot {
+    background-color: rgb(113, 99, 186);
+    font-weight: bold;
+    color: white;
+}
+
+tfoot td {
+    padding: 15px;
+}
+
+.table--container button {
+    margin-top: 1rem;
+    padding: 10px 20px;
+    background-color: #5a58cf;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.table--container button:hover {
+    background-color: #4a48b5;
+}

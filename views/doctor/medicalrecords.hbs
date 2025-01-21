@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .newpat {
+            background-color: #9593FF;
+        }
+        .delete-btn {
+            color: red;
+            cursor: pointer;
+        }
+        .table-container {
+            max-height: 300px; 
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th, table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body class="color font-sans">
+
+   <div class="hidden md:block md:w-1/4 lg:w-1/6 sidebar text-white p-4">
+    <div class="logo"></div>
+    <ul class="menu">
+         <li>
+                <a class="hover:text-[#DDD6FE]" href="/doctor/medicalrecords"><i class="fas fa-user-injured text-white  "></i></i><span>Medical Information</span></a>
+        </li>
+
+         <li>
+           <a class="hover:text-[#DDD6FE]" href="/doctor/dashboard"><i class="fas fa-tachometer-alt text-white text-2xl"></i> <span>Dashboard</span></a>
+        </li>
+        
+        <li class="logout">
+                <a href=""> <i class="fas fa-cog text-white"></i><span>Settings</span></a><br>
+                <a href="/logout" > <i class="fas fa-sign-out-alt text-white"></i><span>Logout</span></a>
+            </li>
+
+    </ul>
+   </div>
+
+   <!--Body -->
+   <div class="main--content">
+    <!-- Header -->
+     <div class="header--wrapper">
+        
+        <div class="header--title">
+            <span class="bg-black text-white px-2 py-1">PRO</span> CLINIC
+            <div class="mt-2"></div> 
+            <h2 class="mt-4">Medical Records</h2>
+        </div>
+
+        <div class="user--info flex items-center space-x-4">
+            <div class="relative">
+                <input type="text" placeholder="Search" class="border border-gray-300 rounded-md p-2 pl-10" id="">
+                <i class="fas fa-search text-black absolute left-3 top-1/2 transform -translate-y-1/2"></i> 
+            </div>
+
+            <div class="profile-icon bg-black rounded-full p-3 flex items-center justify-center w-12 h-12">
+                <i class="fas fa-user text-white"></i> 
+            </div>
+        </div>
+     </div>
+
+    <div class="container mx-auto p-6">
+        <h1 class="text-3xl font-bold mb-6">All Patient Medical Records</h1>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg overflow-x-auto">
+            <!-- Add the overflow-x-auto to enable horizontal scrolling on small screens -->
+            <h2 class="font-bold text-lg mb-4">Patient Records</h2>
+            <table class="w-full border-collapse border border-gray-300">
+                <thead>
+                    <tr>
+                        <th class="border border-gray-300 p-2">Name</th>
+                        <th class="border border-gray-300 p-2">Age</th>
+                        <th class="border border-gray-300 p-2">Gender</th>
+                        <th class="border border-gray-300 p-2">Heart Rate (BPM)</th>
+                        <th class="border border-gray-300 p-2">Blood Pressure</th>
+                        <th class="border border-gray-300 p-2">Glucose Level (mg/dL)</th>
+                        <th class="border border-gray-300 p-2">Symptoms</th>
+                        <th class="border border-gray-300 p-2">Diagnosis</th>
+                        <th class="border border-gray-300 p-2">Prescription</th>
+                    </tr>
+                </thead>
+                <tbody class="trtbody">
+                    {{#each patients}}
+                    <tr>
+                        <td class="border border-gray-300 p-2">{{this.name}}</td>
+                        <td class="border border-gray-300 p-2">{{this.age}}</td>
+                        <td class="border border-gray-300 p-2">{{this.gender}}</td>
+                        <td class="border border-gray-300 p-2">{{this.heartRate}}</td>
+                        <td class="border border-gray-300 p-2">{{this.bloodPressure}}</td>
+                        <td class="border border-gray-300 p-2">{{this.glucoseLevel}}</td>
+                        <td class="border border-gray-300 p-2">{{this.symptoms}}</td>
+                        <td class="border border-gray-300 p-2">{{this.diagnosis}}</td>
+                        <td class="border border-gray-300 p-2">{{this.prescription}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+      
+      <script src="https://cdn.tailwindcss.com"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body class="bg-gray-100 font-sans">
+
+      <!-- Sidebar -->
+     
+    <div  class="hidden md:block md:w-1/4 lg:w-1/5 sidebar text-white p-4">
+        <div class="logo"></div>
+        <ul class="menu">
+         <li>
+                <a class="hover:text-[#DDD6FE]" href="/doctor/medicalrecords"><i class="fas fa-user-injured text-white  "></i></i><span>Medical Information</span></a>
+        </li>
+
+         <li>
+           <a class="hover:text-[#DDD6FE]" href="/doctor/dashboard"><i class="fas fa-tachometer-alt text-white text-2xl"></i> <span>Dashboard</span></a>
+        </li>
+            
+            <li class="logout">
+                    <a href=""> <i class="fas fa-cog text-white"></i><span>Settings</span></a><br>
+                    <a href="/logout" > <i class="fas fa-sign-out-alt text-white"></i><span>Logout</span></a>
+                </li>
+
+        </ul>
+    </div>
+
+   <!--Body -->
+
+   <div class="main--content">
+    <!-- Header -->
+     <div class="header--wrapper">
+        
+        <div class="header--title">
+            <span class="bg-black text-white px-2 py-1">PRO</span> CLINIC
+            <div class="mt-2"></div> 
+            <h2 class="mt-4">Additional Information</h2>
+        </div>
+
+        <div class="user--info flex items-center space-x-4">
+            <div class="relative">
+                <input type="text" placeholder="Search" class="border border-gray-300 rounded-md p-2 pl-10" id="">
+                <i class="fas fa-search text-black absolute left-3 top-1/2 transform -translate-y-1/2"></i> 
+            </div>
+
+            <div class="profile-icon bg-black rounded-full p-3 flex items-center justify-center w-12 h-12">
+                <i class="fas fa-user text-white"></i> 
+            </div>
+        </div>
+     </div>
+
+
+<!-- Patient Info -->
+<div class="flex flex-col lg:flex-row">
+    <!-- Main Content -->
+    <div class="flex-grow p-6">
+        <!-- Form Start -->
+        <form id="profileForm">
+            <!-- Top Section (Heart Rate, Blood Pressure, Glucose Level) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-purple-100 p-6 rounded-lg shadow-lg text-center">
+                    <p class="text-gray-500">Heart Rate</p>
+                    <select name="heartRate" class="text-xl font-bold bg-purple-100 text-gray-800 border border-gray-300 rounded-md w-full">
+                        <option value="">? BPM</option>
+                        <option value="40">40 BPM</option>
+                        <option value="60">60 BPM</option>
+                        <option value="70">70 BPM</option>
+                        <option value="75">75 BPM</option>
+                        <option value="80">80 BPM</option>
+                        <option value="85">85 BPM</option>
+                        <option value="90">90 BPM</option>
+                        <option value="100">100 BPM</option>
+                        <option value="110">110 BPM</option>
+                        <option value="120">120 BPM</option>
+                        <option value="140">140 BPM</option>
+                        <option value="180">180 BPM</option>
+                    </select>
+                </div>
+                <div class="bg-blue-100 p-6 rounded-lg shadow-lg text-center">
+                    <p class="text-gray-500">Blood Pressure</p>
+                    <select name="bloodPressure" class="text-xl font-bold bg-blue-100 text-gray-800 border border-gray-300 rounded-md w-full">
+                        <option value="">?/60 mmHg</option>
+                        <option value="90/60">90/60 mmHg</option>
+                        <option value="100/70">100/70 mmHg</option>
+                        <option value="110/70">110/70 mmHg</option>
+                        <option value="120/80">120/80 mmHg</option>
+                        <option value="130/85">130/85 mmHg</option>
+                        <option value="140/90">140/90 mmHg</option>
+                        <option value="150/95">150/95 mmHg</option>
+                        <option value="160/100">160/100 mmHg</option>
+                        <option value="180/120">180/120 mmHg</option>
+                    </select>
+                </div>
+                <div class="bg-pink-100 p-6 rounded-lg shadow-lg text-center">
+                    <p class="text-gray-500">Glucose Level</p>
+                    <select name="glucoseLevel" class="text-xl font-bold bg-pink-100 text-gray-800 border border-gray-300 rounded-md w-full">
+                        <option value="">? mg/dL</option>
+                        <option value="40">40 mg/dL</option>
+                        <option value="60">60 mg/dL</option>
+                        <option value="70">70 mg/dL</option>
+                        <option value="80">80 mg/dL</option>
+                        <option value="90">90 mg/dL</option>
+                        <option value="100">100 mg/dL</option>
+                        <option value="110">110 mg/dL</option>
+                        <option value="120">120 mg/dL</option>
+                        <option value="150">150 mg/dL</option>
+                        <option value="200">200 mg/dL</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Symptoms -->
+            <div class="bg-white p-6 rounded-lg shadow-lg mt-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="font-bold text-lg">Select Symptoms</h2>
+                </div>
+                <div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600" name="symptoms" value="Fever">
+                            <span class="text-sm">Fever</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600" name="symptoms" value="Cough">
+                            <span class="text-sm">Cough</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600" name="symptoms" value="Shortness of breath">
+                            <span class="text-sm">Shortness of breath</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600" name="symptoms" value="Headache">
+                            <span class="text-sm">Headache</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600" name="symptoms" value="Chest pain">
+                            <span class="text-sm">Chest pain</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600" name="symptoms" value="Fatigue">
+                            <span class="text-sm">Fatigue</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600" name="symptoms" value="Dizziness">
+                            <span class="text-sm">Dizziness</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600" name="symptoms" value="Nausea">
+                            <span class="text-sm">Nausea</span>
+                        </label>
+                        <label class="flex items-center space-x-2">
+                            <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600" name="symptoms" value="Vomiting">
+                            <span class="text-sm">Vomiting</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Patient Diagnosis -->
+            <div class="bg-white p-6 rounded-lg shadow-lg mt-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="font-bold text-lg">Patient Diagnosis</h2>
+                    <div>
+                        <button type="button" class="px-4 py-2 bg-blue-600 text-white rounded-md mr-2">Set Time</button>
+                    </div>
+                </div>
+                <div class="h-40 bg-blue-50 rounded-lg flex items-center justify-center">
+                    <textarea 
+                        name="diagnosis"
+                        class="w-full h-full p-2 bg-white border border-gray-300 rounded-md" 
+                        placeholder="Enter diagnosis information here" 
+                        rows="5"></textarea>
+                </div>
+            </div>
+
+            <!-- Prescription -->
+            <div class="bg-white p-6 rounded-lg shadow-lg mt-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="font-bold text-lg">Prescriptions</h2>
+                    <div>
+                        <button type="button" class="px-4 py-2 bg-blue-600 text-white rounded-md mr-2">Set Time</button>
+                    </div>
+                </div>
+                <div class="h-40 bg-blue-50 rounded-lg flex items-center justify-center">
+                    <textarea 
+                        name="prescription"
+                        class="w-full h-full p-2 bg-white border border-gray-300 rounded-md" 
+                        placeholder="Enter prescription here" 
+                        rows="5"></textarea>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="mt-6">
+                <button type="submit" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-md">Upload Patient Medical Records</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div id="patientId" data-id=""></div>
+<script>
+  document.getElementById('profileForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    // Get the patient ID from the URL
+    const currentURL = window.location.href;
+    const urlParts = currentURL.split('/');
+    const patientId = urlParts[urlParts.length - 1]; // Get the last part of the URL (the ID)
+
+    console.log("The patient ID is", patientId);
+
+    // Create a FormData object and append the patient ID
+    const formData = new FormData(this);
+    formData.append('patientId', patientId); // Add patient ID to the form data
+
+    // Create an object from FormData
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      // Send the request with the form data and patient ID
+      const response = await fetch(`/doctor/patients/`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        // If the update is successful, redirect to the medical records page showing all patients
+        window.location.href = `/doctor/medicalrecords`;
+      } else {
+        const errorText = await response.text();
+        console.error("Error response:", errorText);
+        alert("Error updating patient record");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An error occurred while updating the record");
+    }
+  });
+</script>
+</form>
+
+  <!-- Form End -->
+</div>
+
+
+
+
+
+    <!-- Right Sidebar -->
+    <div class="w-64 p-6 space-y-6">
+      <div class="bg-white p-6 rounded-lg shadow-lg">
+        <h2 class="font-bold text-lg">Patient Info</h2>
+        <div class="mt-4">
+            <h3><strong>Name:</strong> {{patient.name}}</h3>
+            <h3><strong>Gender:</strong> {{patient.gender}}</h3>
+            <h3><strong>Age:</strong> {{patient.age}} years old</h3>
+
+          <!-- Add more doctor avatars -->
+        </div>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-lg">
+        <h2 class="font-bold text-lg">Details</h2>
+      <p class="mt-4">Blood Type:</p>
+      <select id="bloodType" class="text-sm font-bold text-gray-800 border border-gray-300 rounded-md">
+        <option value="">Select Blood Type</option>
+        <option value="A+">A+</option>
+        <option value="A-">A-</option>
+        <option value="B+">B+</option>
+        <option value="B-">B-</option>
+        <option value="AB+">AB+</option>
+        <option value="AB-">AB-</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+      </select>
+      
+      <p class="mt-4">Height:</p>
+      <select id="height" class="text-sm font-bold text-gray-800 border border-gray-300 rounded-md">
+        <option value="">Select Height</option>
+        <option value="150">150 CM</option>
+        <option value="160">160 CM</option>
+        <option value="170">170 CM</option>
+        <option value="175">175 CM</option>
+        <option value="180">180 CM</option>
+        <option value="185">185 CM</option>
+        <option value="190">190 CM</option>
+        <option value="200">200 CM</option>
+      </select>
+
+      <p class="mt-4">Weight:</p>
+      <select id="weight" class="text-sm font-bold text-gray-800 border border-gray-300 rounded-md">
+        <option value="">Select Weight</option>
+        <option value="50">50 KG</option>
+        <option value="60">60 KG</option>
+        <option value="70">70 KG</option>
+        <option value="75">75 KG</option>
+        <option value="80">80 KG</option>
+        <option value="90">90 KG</option>
+        <option value="100">100 KG</option>
+        <option value="110">110 KG</option>
+      </select>
+  
+      </div>
+      <div class="bg-purple-600 p-6 rounded-lg shadow-lg text-white">
+        <p class="font-bold">Medical Alerts</p>
+        <p class="mt-4">Important alerts related to the patient's medical condition.</p>
+        <button class="mt-6 px-4 py-2 bg-white text-purple-600 font-bold rounded-md">View Alerts</button>
+      </div>
+    </div>
+
+      </form>
+  </div>
+</body>
+</html>

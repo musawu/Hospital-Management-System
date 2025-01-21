@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+     <style>
+        .table--container {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th, table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+
+     </style>
+</head>
+<body>
+
+      <!-- Sidebar -->
+   <div class="hidden md:block md:w-1/4 lg:w-1/6 sidebar text-white p-4">
+    <div class="logo"></div>
+    <ul class="menu">
+         <li>
+                <a class="hover:text-[#DDD6FE]" href="/doctor/medicalrecords"><i class="fas fa-user-injured text-white  "></i></i><span>Medical Information</span></a>
+        </li>
+
+         <li>
+           <a class="hover:text-[#DDD6FE]" href="/doctor/dashboard"><i class="fas fa-tachometer-alt text-white text-2xl"></i> <span>Dashboard</span></a>
+        </li>
+        
+        <li class="logout">
+                <a href=""> <i class="fas fa-cog text-white"></i><span>Settings</span></a><br>
+                <a href="/logout" > <i class="fas fa-sign-out-alt text-white"></i><span>Logout</span></a>
+            </li>
+
+    </ul>
+   </div>
+
+   
+   <!--Body -->
+
+   <div class="main--content">
+     <!-- Header -->
+     <div class="header--wrapper container mx-auto flex items-center justify-between">
+        
+        <div class="header--title">
+            <span class="bg-black text-white px-2 py-1">PRO</span> CLINIC
+            <div class="mt-2"></div> 
+            <h2 class="mt-4"> Doctor's Dashboard</h2>
+        </div>
+
+        <div class="user--info flex items-center space-x-4">
+            <div class="relative">
+                <input type="text" placeholder="Search" class="border border-gray-300 rounded-md p-2 pl-10" id="">
+                <i class="fas fa-search text-black absolute left-3 top-1/2 transform -translate-y-1/2"></i> 
+            </div>
+
+            <div class="profile-icon bg-black rounded-full p-3 flex items-center justify-center w-12 h-12">
+                <i class="fas fa-user text-white"></i> 
+            </div>
+        </div>
+     </div>
+
+<!-- Cards -->
+        <h3 class="main--title">Today's data</h3>
+        <div class="card-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Cards with responsive grid -->
+            <div class="payment--card bg-fuchsia-200 p-6 rounded-lg shadow-md">
+                <div class="card--header">
+                    <div class="amount flex items-center justify-between">
+                        <div class="title">
+                            Appointments <span class="amount-value text-purple-700">460</span>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-13 w-12 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <span class="card-number text-purple-700 text-xs">5.9% Last Week</span>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="payment--card bg-orange-100 p-6 rounded-lg shadow-md">
+                <div class="card--header">
+                    <div class="amount flex items-center justify-between">
+                        <div class="title">
+                            Total Patients <span class="amount-value">210</span>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-12 text-white bg-orange-400 p-1 rounded" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <rect width="24" height="24" rx="4" fill="currentColor" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                        </svg>
+                    </div>
+                    <span class="card-number">* * ** 3484</span>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="payment--card bg-purple-300 p-6 rounded-lg shadow-md">
+                <div class="card--header">
+                    <div class="amount flex items-center justify-between">
+                        <div class="title">
+                            Total Earning <span class="amount-value">$5000.00</span>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-13 w-12 bg-red-500 rounded-full p-1 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <span class="card-number">* * ** 3484</span>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="payment--card bg-violet-300 p-6 rounded-lg shadow-md">
+                <div class="card--header">
+                    <div class="amount flex items-center justify-between">
+                        <div class="title">
+                            Payment Amount <span class="amount-value">$5000.00</span>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-13 w-12 bg-violet-300 text-white p-1 rounded-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z M20 7H8M20 11H8M20 15H8" />
+                        </svg>
+                    </div>
+                    <span class="card-number">* * ** 3484</span>
+                </div>
+            </div>
+        </div>
+
+
+     <!-- Tabular Data -->
+
+<div class="tabular--wrapper">
+    <h3 class="main--title text-bold">Patient's Appointment</h3>
+    <div class="table--container bg-white p-6 rounded-lg shadow-lg overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-300">
+            <thead>
+                <tr>
+                    <th class="border border-gray-300 p-2">Name</th>
+                    <th class="border border-gray-300 p-2">Age</th>
+                    <th class="border border-gray-300 p-2">DOB</th>
+                    <th class="border border-gray-300 p-2">Gender</th>
+                    <th class="border border-gray-300 p-2">Phone</th>
+                    <th class="border border-gray-300 p-2">Email</th>
+                    <th class="border border-gray-300 p-2">Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each patients}}
+                    <tr class="cursor-pointer" onclick="window.location.href='/doctor/patient/{{this.id}}'">
+                        <td class="border border-gray-300 p-2">{{this.name}}</td>
+                        <td class="border border-gray-300 p-2">{{this.age}}</td>
+                        <td class="border border-gray-300 p-2">{{this.dob}}</td>
+                        <td class="border border-gray-300 p-2">{{this.gender}}</td>
+                        <td class="border border-gray-300 p-2">{{this.phone}}</td>
+                        <td class="border border-gray-300 p-2">{{this.email}}</td>
+                        <td class="border border-gray-300 p-2">{{this.address}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Clinic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-image: url('https://images.unsplash.com/photo-1527613426441-4da17471b66d?q=80&w=2904&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="relative min-h-screen">
+    <div class="overlay"></div>
+    <div class="relative z-10">
+        <!--Header section-->
+        <header class="w-full h-20">
+            <div class="container mx-auto px-4 h-full flex items-center justify-between">
+                <div class="flex items-center">
+                    <div class="text-2xl text-white bg-black px-1.5 py-0.5 rounded-md font-semibold mr-1">
+                        PRO
+                    </div>
+                    <div class="text-2xl text-white font-semibold">
+                        CLINIC
+                    </div>
+                </div>
+                <div class="text-lg text-white font-medium">
+                    <a class="cursor-pointer pr-3 hover:text-purple-500">Contact us</a>
+                    <a class="cursor-pointer hover:text-purple-500" href="/signin">Sign in</a>
+
+                </div>
+            </div>
+        </header>
+        <!--Content section-->
+        <section class="container mx-auto px-4 flex items-center justify-center min-h-screen text-center">
+            <span id="animatedText" class="text-4xl md:text-6xl font-semibold text-white max-w-3xl">
+                Embark on your healthy journey with professionals
+            </span>
+        </section>
+        
+        <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const text = document.getElementById('animatedText');
+            text.animate([
+                { opacity: 0, transform: 'translateY(20px)' },
+                { opacity: 1, transform: 'translateY(0)' }
+            ], {
+                duration: 3000,
+                easing: 'ease-in-out'
+            });
+        });
+        </script>
+        
+        
+    </div>
+</body>
+</html>

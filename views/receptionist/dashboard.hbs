@@ -1,0 +1,492 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <style>
+        .newpat {
+            background-color: #9593FF;
+        }
+        .bgcolour{
+             background-color: #5a58cf;
+        }
+        .delete-btn {
+            color: red;
+            cursor: pointer;
+        }
+        .table-container {
+            max-height: 300px; 
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th, table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+    </style>
+    
+</head>
+<body>
+
+   <!-- Sidebar -->
+    <div class="hidden md:block md:w-1/4 lg:w-1/5 sidebar text-white p-4">
+        <div class="logo"></div>
+        <ul class="menu">
+            <li class=" newpat hover:bg-purple-500">
+                <a href="/receptionist/addpatient" > <span >  + &nbsp;New Patient</span></a>
+            </li><br>
+
+            <li>
+                <a href="/receptionist/dashboard"><i class="fas fa-user-injured text-white"></i></i><span>Patient's History</span></a>
+            </li>
+        
+            <li class="logout">
+                <a href=""> <i class="fas fa-cog text-white"></i><span>Settings</span></a><br>
+                <a href="/logout" > <i class="fas fa-sign-out-alt text-white"></i><span>Logout</span></a>
+            </li>
+
+        </ul>
+    </div> 
+   
+
+
+   <!--Body -->
+   <div class="main--content">
+    <!-- Header -->
+     <div class="header--wrapper">
+        
+        <div class="header--title">
+            <span class="bg-black text-white px-2 py-1">PRO</span> CLINIC
+            <div class="mt-2"></div> 
+            <h2 class="mt-4">Dashboard</h2>
+        </div>
+
+        <div class="user--info flex items-center space-x-4">
+            <div class="relative">
+                <input type="text" placeholder="Search" class="border border-gray-300 rounded-md p-2 pl-10" id="">
+                <i class="fas fa-search text-black absolute left-3 top-1/2 transform -translate-y-1/2"></i> 
+            </div>
+
+            <div class="profile-icon bg-black rounded-full p-3 flex items-center justify-center w-12 h-12">
+                <i class="fas fa-user text-white"></i> 
+            </div>
+        </div>
+     </div>
+
+      <!-- Cards -->
+        <h3 class="main--title">Today's data</h3>
+        <div class="card-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Cards with responsive grid -->
+            <div class="payment--card bg-fuchsia-200 p-6 rounded-lg shadow-md">
+                <div class="card--header">
+                    <div class="amount flex items-center justify-between">
+                        <div class="title">
+                            Appointments <span class="amount-value text-purple-700">460</span>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-13 w-12 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <span class="card-number text-purple-700 text-xs">5.9% Last Week</span>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="payment--card bg-orange-100 p-6 rounded-lg shadow-md">
+                <div class="card--header">
+                    <div class="amount flex items-center justify-between">
+                        <div class="title">
+                            Total Patients <span class="amount-value">210</span>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-12 text-white bg-orange-400 p-1 rounded" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <rect width="24" height="24" rx="4" fill="currentColor" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                        </svg>
+                    </div>
+                    <span class="card-number">** ** ** 3484</span>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="payment--card bg-purple-300 p-6 rounded-lg shadow-md">
+                <div class="card--header">
+                    <div class="amount flex items-center justify-between">
+                        <div class="title">
+                            Total Earning <span class="amount-value">$5000.00</span>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-13 w-12 bg-red-500 rounded-full p-1 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <span class="card-number">** ** ** 3484</span>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="payment--card bg-violet-300 p-6 rounded-lg shadow-md">
+                <div class="card--header">
+                    <div class="amount flex items-center justify-between">
+                        <div class="title">
+                            Payment Amount <span class="amount-value">$5000.00</span>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-13 w-12 bg-violet-300 text-white p-1 rounded-lg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z M20 7H8M20 11H8M20 15H8" />
+                        </svg>
+                    </div>
+                    <span class="card-number">** ** ** 3484</span>
+                </div>
+            </div>
+        </div>
+
+
+
+  <!-- Patient Appointments Table -->
+        <div class="container mx-auto px-4 py-8">
+            <h3 class="text-2xl font-bold mb-4">Patient's Appointment</h3>
+            <div class="table-container overflow-x-auto">
+                <table class="min-w-full bg-white">
+                    <thead class="bgcolour">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Name</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Age</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">DOB</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Gender</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Phone</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Email</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Address</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        {{#each patients}}
+                        <tr data-id="{{this.id}}">
+                            <td id="tdname" class="px-6 py-4 whitespace-nowrap">{{this.name}}</td>
+                            <td id="tdage" class="px-6 py-4 whitespace-nowrap">{{this.age}}</td>
+                            <td id="tddob" class="px-6 py-4 whitespace-nowrap">{{this.dob}}</td>
+                            <td id="tdgender" class="px-6 py-4 whitespace-nowrap">{{this.gender}}</td>
+                            <td id="tdphone" class="px-6 py-4 whitespace-nowrap">{{this.phone}}</td>
+                            <td id="tdemail" class="px-6 py-4 whitespace-nowrap">{{this.email}}</td>
+                            <td id="tdaddress" class="px-6 py-4 whitespace-nowrap">{{this.address}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <button onclick="openEditModal('{{this.id}}')" class="text-blue-600 hover:text-blue-900 mr-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                                    </svg>
+                                </button>
+                                <button class="delete-btn" data-patient-id="{{this.id}}" onclick="deletePatient('{{this.id}}')" class="text-red-600 hover:text-red-900">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+<!-- Edit Modal -->
+<div id="editModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden z-50">
+    <div class="flex items-center justify-center min-h-screen p-4">
+        <!-- Modal content -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-xl w-full max-w-4xl mx-auto">
+            <div class="bg-[#9593FF] px-6 py-4 text-white">
+                <h3 class="text-2xl font-semibold">Edit Patient</h3>
+            </div>
+            <div class="bg-gray-100 px-6 py-4">
+                <form id="editForm" class="space-y-4">
+                    <input type="hidden" id="patientId">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                            <input type="text" id="name" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-[#9593FF] focus:border-[#9593FF]">
+                        </div>
+                        <div>
+                            <label for="age" class="block text-sm font-medium text-gray-700">Age</label>
+                            <input type="number" id="age" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-[#9593FF] focus:border-[#9593FF]">
+                        </div>
+                        <div>
+                            <label for="dob" class="block text-sm font-medium text-gray-700">DOB</label>
+                            <input type="date" id="dob" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-[#9593FF] focus:border-[#9593FF]">
+                        </div>
+                        <div>
+                            <label for="gender" class="block text-sm font-medium text-gray-700">Gender</label>
+                            <select id="gender" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-[#9593FF] focus:border-[#9593FF]">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
+                            <input type="tel" id="phone" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-[#9593FF] focus:border-[#9593FF]">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                            <input type="email" id="email" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-[#9593FF] focus:border-[#9593FF]">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label for="address" class="block text-sm font-medium text-gray-700">Address</label>
+                            <input type="text" id="address" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-[#9593FF] focus:border-[#9593FF]">
+                        </div>
+                    </div>
+                    <div class="mt-6 flex justify-end space-x-3">
+                        <button type="button" onclick="closeModal()" class="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500">
+                            Cancel
+                        </button>
+                        <button type="submit" class="px-4 py-2 bg-[#9593FF] text-white rounded-md hover:bg-[#7a78ff] focus:outline-none focus:ring-2 focus:ring-[#9593FF]">
+                            Save Changes
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script> 
+      
+// Delete
+function deletePatient(patientId) {
+  if (confirm('Are you sure you want to delete this patient record?')) {
+    fetch(`/receptionist/deletepatient/${patientId}`, {
+      method: 'DELETE',
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        // Remove the row from the table
+        const row = document.querySelector(`button[data-patient-id="${patientId}"]`).closest('tr');
+        row.remove();
+      } else {
+        alert('Successfully deleting patient');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('Error deleting patient record');
+    });
+  }
+}
+
+    // Get the modal
+const modal = document.getElementById("editModal");
+
+// Function to open the modal and populate it with patient data from the table row
+function openEditModal(patientId) {
+    console.log('Opening modal for patient ID:', patientId);
+    
+    // Find the table row with the matching patient ID
+    const row = document.querySelector(`tr[data-id="${patientId}"]`);
+    
+    if (row) {
+        console.log('Found row:', row);
+
+        // Extract data from the table row
+        const patientData = {
+            id: patientId,
+            name: row.cells[0].textContent.trim(),
+            age: row.cells[1].textContent.trim(),
+            dob: row.cells[2].textContent.trim(),
+            gender: row.cells[3].textContent.trim(),
+            phone: row.cells[4].textContent.trim(),
+            email: row.cells[5].textContent.trim(),
+            address: row.cells[6].textContent.trim()
+        };
+
+        console.log('Extracted patient data:', patientData);
+
+        // Function to set input value and trigger update
+        function setInputValue(id, value) {
+            const input = document.getElementById(id);
+            if (input) {
+                input.value = value;
+                input.dispatchEvent(new Event('input', { bubbles: true }));
+                input.dispatchEvent(new Event('change', { bubbles: true }));
+                console.log(`Set ${id}:`, input.value);
+            } else {
+                console.error(`Input field ${id} not found`);
+            }
+        }
+
+        // Populate the form fields
+        setInputValue("patientId", patientData.id);
+        setInputValue("name", patientData.name);
+        setInputValue("age", patientData.age);
+        setInputValue("dob", patientData.dob);
+        setInputValue("gender", patientData.gender.toLowerCase());
+        setInputValue("phone", patientData.phone);
+        setInputValue("email", patientData.email);
+        setInputValue("address", patientData.address);
+
+        // Display the modal
+        modal.classList.remove('hidden');
+        console.log('Modal displayed');
+
+        // Double-check all field values after a short delay
+        setTimeout(() => {
+            console.log('Final field values:', {
+                id: document.getElementById("patientId").value,
+                name: document.getElementById("name").value,
+                age: document.getElementById("age").value,
+                dob: document.getElementById("dob").value,
+                gender: document.getElementById("gender").value,
+                phone: document.getElementById("phone").value,
+                email: document.getElementById("email").value,
+                address: document.getElementById("address").value
+            });
+        }, 100);
+    } else {
+        console.error('Row not found for patient ID:', patientId);
+        alert('Error: Patient data not found');
+    }
+}
+
+// Function to close the modal
+function closeModal() {
+    modal.classList.add('hidden');
+    console.log('Modal closed');
+}
+
+// Close the modal when clicking outside of it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        closeModal();
+    }
+}
+
+// Function to update patient data
+function updatePatient(formData) {
+    // Convert formData to JSON
+    const patientData = {
+        id: formData.id,
+        name: formData.name,
+        age: parseInt(formData.age),
+        dob: formData.dob,
+        gender: formData.gender,
+        phone: formData.phone,
+        email: formData.email,
+        address: formData.address
+    };
+
+    // Send PUT request to update patient data
+    fetch(`/api/patients/${patientData.id}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(patientData),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Patient updated successfully:', data);
+        
+        // Update the table row with the new data
+        const row = document.querySelector(`tr[data-id="${patientData.id}"]`);
+        if (row) {
+            row.cells[0].textContent = patientData.name;
+            row.cells[1].textContent = patientData.age;
+            row.cells[2].textContent = patientData.dob;
+            row.cells[3].textContent = patientData.gender;
+            row.cells[4].textContent = patientData.phone;
+            row.cells[5].textContent = patientData.email;
+            row.cells[6].textContent = patientData.address;
+        }
+
+        // Close the modal
+        closeModal();
+
+        // Show success message to the user
+        alert('Patient data updated successfully!');
+    })
+    .catch((error) => {
+        console.error('Error updating patient:', error);
+        // Show error message to the user
+        alert('Error updating patient data. Please try again.');
+    });
+}
+
+// Handle form submission
+document.getElementById("editForm").onsubmit = function(e) {
+    e.preventDefault();
+    
+    // Collect form data
+    const formData = {
+        id: document.getElementById("patientId").value,
+        name: document.getElementById("name").value,
+        age: document.getElementById("age").value,
+        dob: document.getElementById("dob").value,
+        gender: document.getElementById("gender").value,
+        phone: document.getElementById("phone").value,
+        email: document.getElementById("email").value,
+        address: document.getElementById("address").value
+    };
+
+    console.log("Submitting edited data:", formData);
+
+    // Call the updatePatient function
+    updatePatient(formData);
+}
+
+
+
+// Ensure all elements are loaded before attaching event listeners
+document.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded');
+    
+    // Attach event listeners to all edit buttons
+    const editButtons = document.querySelectorAll('[onclick^="openEditModal"]');
+    console.log('Found edit buttons:', editButtons.length);
+    editButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default action if it's a link
+            const patientId = this.getAttribute('onclick').match(/'([^']+)'/)[1];
+            console.log('Edit button clicked for patient ID:', patientId);
+            openEditModal(patientId);
+        });
+    });
+
+    // Attach event listeners to all delete buttons
+    const deleteButtons = document.querySelectorAll('[onclick^="deletePatient"]');
+    console.log('Found delete buttons:', deleteButtons.length);
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default action if it's a link
+            const patientId = this.getAttribute('onclick').match(/'([^']+)'/)[1];
+            console.log('Delete button clicked for patient ID:', patientId);
+            deletePatient(patientId);
+        });
+    });
+});
+
+</script>
+
+
+
+
+</div>
+</body>
+</html> 
+
+
